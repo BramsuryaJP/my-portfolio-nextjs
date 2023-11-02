@@ -12,8 +12,6 @@ import profileImage from '@/public/bram.jpg'
 import useSectionInView from '@/lib/hooks'
 import { useActiveSectionContext } from '@/context/ActiveSectionContextProvider'
 
-import Typewriter from 'typewriter-effect'
-
 export default function Intro() {
 	const { ref } = useSectionInView('Home', 0.5)
 	const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext()
