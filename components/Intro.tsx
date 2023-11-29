@@ -84,7 +84,7 @@ export default function Intro() {
 					}}
 				>
 					Contact me{' '}
-					<BsArrowRight className='opacity-70 group-hover:translate-x-1' />
+					<BsArrowRight className='opacity-70 group-hover:translate-x-1 transition duration-150' />
 				</Link>
 				<a
 					className='group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none
@@ -93,7 +93,7 @@ export default function Intro() {
 					download={true}
 				>
 					Download CV{' '}
-					<HiDownload className='opacity-60 group-hover:translate-y-1' />
+					<HiDownload className='opacity-60 group-hover:translate-y-1 transition duration-150' />
 				</a>
 				<a
 					className='bg-white p-4 text-gray-700 hover:text-gray-950 flex items-center gap-2 rounded-full outline-none
