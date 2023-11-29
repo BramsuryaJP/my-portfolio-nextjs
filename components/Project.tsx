@@ -35,7 +35,7 @@ export default function Project({
 				className='bg-gray-100 max-w-[42rem] border border-black/5 rounded-lg overflow-hidden sm:pr-8 
       relative sm:h-[20rem] transition sm:group-even:pl-8 flex dark:bg-white/10 dark:hover:bg-white/20 dark:text-white'
 			>
-				<div className='pt-4 pb-7 px-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[50%] flex flex-col h-full sm:group-even:ml-[18rem] group-hover:sm:blur-sm'>
+				<div className='pt-4 pb-7 px-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[50%] flex flex-col h-full sm:group-even:ml-[18rem] group-hover:sm:blur-sm transition duration-200'>
 					<h3 className='text-2xl font-semibold'>{title}</h3>
 					<p className='mt-2 leading-relaxed text-gray-700 dark:text-white/70'>
 						{description}
@@ -59,7 +59,7 @@ export default function Project({
 					priority
 					className='absolute hidden sm:block top-1/2 -translate-y-1/2 group-odd:-right-40 w-[28.25rem] h-[15rem] rounded-lg 
           shadow-2xl
-          transition 
+          transition duration-300 ease-out 
           group-hover:scale-[1.06] group-hover:-translate-x-1/2 group-hover:right-1/2 group-hover:left-1/2  
           group-hover:group-even:translate-x-28
           group-hover:group-even:-left-0
