@@ -1,0 +1,14 @@
+{
+	"Intro": {
+		"name": "Hello, I'm Bram.",
+		"im": "I'm a",
+		"role": "Frontend Developer",
+		"with": "with",
+		"years": "3 years",
+		"enjoy": "of experience. I enjoy building",
+		"sites": "sites & apps",
+		"focus": "My focus is",
+		"tech": "React (Next.js)",
+    "contactLabel": "Contact me"
+	}
+}

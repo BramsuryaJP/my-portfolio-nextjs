@@ -1,27 +1,37 @@
 import Header from '@/components/Header'
+import { notFound } from 'next/navigation'
 import './globals.css'
 import { Inter } from 'next/font/google'
 import ActiveSectionContextProvider from '@/context/ActiveSectionContextProvider'
 import { Toaster } from 'react-hot-toast'
 import ThemeToggler from '@/components/ThemeToggler'
+import LangToggler from '@/components/LangToggler'
 import ThemeContextProvider from '@/context/ThemeContextProvider'
+import { locales } from '../../config'
+import { ReactNode } from 'react'
+import { NextIntlClientProvider, useMessages } from 'next-intl'
 
 const inter = Inter({
 	subsets: ['latin'],
 })
+
+type Props = {
+	children: ReactNode
+	params: { locale: string }
+}
 
 export const metadata = {
 	title: 'Bramsurya | Personal portfolio',
 	description: 'Bramsurya is a front-end developer with 2 years of experience.',
 }
 
-export default function RootLayout({
-	children,
-}: {
-	children: React.ReactNode
-}) {
+export default function RootLayout({ children, params: { locale } }: Props) {
+	const messages = useMessages()
+
+	if (!locales.includes(locale as any)) notFound()
+
 	return (
-		<html lang='en' className='!scroll-smooth'>
+		<html lang={locale} className='!scroll-smooth'>
 			<body
 				className={`${inter.className} bg-gray-50 text-gray-950 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90 relative pt-28 sm:pt-36`}
 			>
@@ -37,14 +47,16 @@ export default function RootLayout({
 
 				<ThemeContextProvider>
 					<ActiveSectionContextProvider>
-						<Header />
-						{children}
-						<ThemeToggler />
-						<Toaster position='top-right' />
+						<NextIntlClientProvider messages={messages}>
+							<Header />
+							{children}
+							<LangToggler />
+							<ThemeToggler />
+							<Toaster position='top-right' />
+						</NextIntlClientProvider>
 					</ActiveSectionContextProvider>
 				</ThemeContextProvider>
 			</body>
 		</html>
 	)
 }
-

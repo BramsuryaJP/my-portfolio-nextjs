@@ -1,0 +1,14 @@
+{
+	"Intro": {
+		"name": "Halo, Saya Bram.",
+		"im": "Saya seorang",
+		"role": "Frontend Developer",
+		"with": "dengan",
+		"years": "3 tahun",
+		"enjoy": "pengalaman. saya senang membangun",
+		"sites": "website & aplikasi",
+		"focus": "Saya berfokus pada",
+		"tech": "React (Next.js)",
+    "contactLabel": "Hubungi saya"
+	}
+}
