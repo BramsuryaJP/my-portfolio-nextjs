@@ -9,6 +9,27 @@
 		"sites": "website & aplikasi",
 		"focus": "Saya berfokus pada",
 		"tech": "React (Next.js)",
-    "contactLabel": "Hubungi saya"
+		"contactLabel": "Hubungi saya"
+	},
+	"About": {
+		"label": "Tentang Saya",
+		"descOne": "Setelah lulus dari sekolah menengah kejuruan jurusan",
+		"descTwo": "Rekayasa Perangkat Lunak",
+		"descThree": "Saya memutuskan untuk mengejar passion saya dalam pemrograman. Saya mendaftar di bootcamp pemrograman dan belajar",
+		"descFour": "pengembangan web back-end",
+		"descFive": "Bagian favorit saya dalam pemrograman",
+		"descSix": "adalah aspek pemecahan masalah dan pembelajaran beberapa sintaks kode baru. Saya",
+		"descSeven": "suka",
+		"descEight": "rasa puas ketika akhirnya menemukan solusi untuk suatu masalah dan menemukan sesuatu yang baru sehingga memberi saya pengalaman lebih. Stack inti saya adalah",
+		"descNine": "React, Next.js, Nest.js, dan PostgreSQL",
+		"descTen": "Saya juga familiar dengan TypeScript dan Prisma. Saya selalu mencari untuk belajar teknologi baru. Saat ini, saya sedang mencari",
+		"descEleven": "posisi full-time",
+		"descTwelve": "sebagai front-end developer. ",
+		"descThirteen": "Ketika saya tidak mengoding",
+		"descFourteen": "Saya suka bermain game, menonton film, dan kadang melakukan freelance atau kerja sampingan untuk mendapatkan ilmu dan pengalaman baru. Saya juga suka",
+		"descFifteen": "belajar hal baru",
+		"descSixteen": "Saya sekarang sedang belajar",
+		"descSeventeen": "Vue daj Nuxt JS",
+		"descEighteen": "Saya juga belajar cara membangun bisnis sampingan saya."
 	}
 }

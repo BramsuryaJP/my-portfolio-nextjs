@@ -9,6 +9,27 @@
 		"sites": "sites & apps",
 		"focus": "My focus is",
 		"tech": "React (Next.js)",
-    "contactLabel": "Contact me"
+		"contactLabel": "Contact me"
+	},
+	"About": {
+		"label": "About Me",
+		"descOne": "After graduating from vocational high school majoring in",
+		"descTwo": "Software Engineering",
+		"descThree": "I decided to pursue my passion for programming I enrolled in a coding bootcamp and learned",
+		"descFour": "back-end web development",
+		"descFive": "My favorite part of programming",
+		"descSix": "is the problem-solving aspect and learning some new code syntax. I",
+		"descSeven": "love",
+		"descEight": "the feeling of finally figuring out a solution to a problem and finding something new so it giving me more experience. My core stack is",
+		"descNine": "React, Next.js, Nest.js, and PostgreSQL",
+		"descTen": "I am also familiar with TypeScript and Prisma. I am always looking to learn new technologies. I am currently looking for a",
+		"descEleven": "full-time position",
+		"descTwelve": "as a front-end developer.",
+		"descThirteen": "When I'm not doing some coding",
+		"descFourteen": "I enjoy playing video games, watching movies, and sometimes doing some freelances or sidejobs to make me gain more experience. I also enjoy",
+		"descFifteen": "learning new things",
+		"descSixteen": "I am currently learning about",
+		"descSeventeen": "Vue and Nuxt JS",
+		"descEighteen": "I'm also learning how to build my own side business."
 	}
 }
