@@ -34,5 +34,8 @@
 	},
 	"Project": {
 		"label": "My Projects"
+	},
+	"Skill": {
+		"label": "My Skills"
 	}
 }
