@@ -85,7 +85,7 @@ export const experiencesData = [
 				description:
 					'Terkadang saya menjadi Backend developer dalam perusahaan tempat saya kerja sekarang, Tapi role utama saya adalah Front-End Developer dan stack saya adalah Next.JS dan Nuxt.JS dengan Tailwind atau Bootstrap sebagai stylingnya.',
 				icon: React.createElement(FaReact),
-				date: '2022 - present',
+				date: '2022 - sekarang',
 			},
 		],
 	},
