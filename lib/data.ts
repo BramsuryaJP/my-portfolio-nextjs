@@ -61,36 +61,68 @@ export const experiencesData = [
 	},
 ] as const
 
-export const projectsData = [
-	{
-		title: 'Obsesi',
-		description:
-			'I worked as a front-end developer on this freelance project for 2 weeks. Users can mint nft based on what they want.',
-		tags: ['React', 'Vite', 'Bootstrap'],
-		imageUrl: obsesiImg,
-	},
-	{
-		title: 'Nawa',
-		description:
-			'Same as Obsesi, i worked as a front-end developer on this freelance project for 2 weeks. Users also can mint nft based on what they want',
-		tags: ['React', 'Next.js', 'Tailwind'],
-		imageUrl: nawaImg,
-	},
-	{
-		title: 'Vox3',
-		description:
-			'i worked as a front-end developer on this freelance project for 2 weeks. Its a landing page web app having a quick contact us.',
-		tags: ['React', 'Next.js', 'Tailwind'],
-		imageUrl: voxImg,
-	},
-	{
-		title: 'Halalin',
-		description:
-			'i worked as a front-end developer on this freelance project for 2 months. It having a landing page and learning management system.',
-		tags: ['Vue', 'Nuxt.js', 'Tailwind'],
-		imageUrl: halalinImg,
-	},
-] as const
+export const projectsData = {
+	english: [
+		{
+			title: 'Obsesi',
+			description:
+				'I worked as a front-end developer on this freelance project for 2 weeks. Users can mint nft based on what they want.',
+			tags: ['React', 'Vite', 'Bootstrap'],
+			imageUrl: obsesiImg,
+		},
+		{
+			title: 'Nawa',
+			description:
+				'Same as Obsesi, i worked as a front-end developer on this freelance project for 2 weeks. Users also can mint nft based on what they want',
+			tags: ['React', 'Next.js', 'Tailwind'],
+			imageUrl: nawaImg,
+		},
+		{
+			title: 'Vox3',
+			description:
+				'i worked as a front-end developer on this freelance project for 2 weeks. Its a landing page web app having a quick contact us.',
+			tags: ['React', 'Next.js', 'Tailwind'],
+			imageUrl: voxImg,
+		},
+		{
+			title: 'Halalin',
+			description:
+				'i worked as a front-end developer on this freelance project for 2 months. It having a landing page and learning management system.',
+			tags: ['Vue', 'Nuxt.js', 'Tailwind'],
+			imageUrl: halalinImg,
+		},
+	],
+	indonesian: [
+		{
+			title: 'Obsesi',
+			description:
+				'Saya bekerja sebagai front-end developer pada proyek freelance ini selama 2 minggu. Pengguna dapat melakukan minting NFT berdasarkan keinginan mereka.',
+			tags: ['React', 'Vite', 'Bootstrap'],
+			imageUrl: obsesiImg,
+		},
+		{
+			title: 'Nawa',
+			description:
+				'Same seperti obsesi, Saya bekerja sebagai front-end developer pada proyek freelance ini selama 2 minggu. Pengguna dapat melakukan minting NFT berdasarkan keinginan mereka.',
+			tags: ['React', 'Next.js', 'Tailwind'],
+			imageUrl: nawaImg,
+		},
+		{
+			title: 'Vox3',
+			description:
+				'Saya bekerja sebagai front-end developer pada proyek freelance ini selama 2 minggu. Website ini merupakan landing page yang memiliki fitur hubungi kami melalui email.',
+			tags: ['React', 'Next.js', 'Tailwind'],
+			imageUrl: voxImg,
+		},
+		{
+			title: 'Halalin',
+			description:
+				'Saya bekerja sebagai front-end developer pada proyek freelance ini selama 2 bulan. web ini mempunyai landing page dan Sistem Manajemen Pembelajaran.',
+			tags: ['Vue', 'Nuxt.js', 'Tailwind'],
+			imageUrl: halalinImg,
+		},
+	],
+} 
 
 export const skillsData = [
 	'HTML',

@@ -31,5 +31,8 @@
 		"descSixteen": "I am currently learning about",
 		"descSeventeen": "Vue and Nuxt JS",
 		"descEighteen": "I'm also learning how to build my own side business."
+	},
+	"Project": {
+		"label": "My Projects"
 	}
 }

@@ -31,5 +31,8 @@
 		"descSixteen": "Saya sekarang sedang belajar",
 		"descSeventeen": "Vue daj Nuxt JS",
 		"descEighteen": "Saya juga belajar cara membangun bisnis sampingan saya."
+	},
+	"Project": {
+		"label": "Proyek Saya"
 	}
 }
