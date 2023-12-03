@@ -37,5 +37,8 @@
 	},
 	"Skill": {
 		"label": "My Skills"
+	},
+	"Experience": {
+		"label": "My Experience"
 	}
 }

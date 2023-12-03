@@ -36,28 +36,58 @@ export const links = [
 
 export const experiencesData = [
 	{
-		title: 'Internship',
-		location: 'Indonesia, West Bandung',
-		description:
-			"I follow internship for 4 months, I'm doing an intern there as a Front-end Developer",
-		icon: React.createElement(LuGraduationCap),
-		date: '2021',
-	},
-	{
-		title: 'Bootcamp',
-		location: 'Indonesia, Bandung',
-		description:
-			'After graduated from high school, I followed one of my current company i worked on bootcamp for 2 months. The bootcamp tought me about Backend and the language i use is Express.js',
-		icon: React.createElement(CgWorkAlt),
-		date: '2022',
-	},
-	{
-		title: 'Front-End Developer',
-		location: 'Indonesia, Bandung',
-		description:
-			'Sometimes i become a Back-End Developer on my current job, but my main is Front-End Developer and my stack is Next.JS and Nuxt.JS with Tailwind or Bootstrap as the Styling',
-		icon: React.createElement(FaReact),
-		date: '2022 - present',
+		english: [
+			{
+				title: 'Internship',
+				location: 'Indonesia, West Bandung',
+				description:
+					"I follow internship for 4 months, I'm doing an intern there as a Front-end Developer",
+				icon: React.createElement(LuGraduationCap),
+				date: '2021',
+			},
+			{
+				title: 'Bootcamp',
+				location: 'Indonesia, Bandung',
+				description:
+					'After graduated from high school, I followed one of my current company i worked on bootcamp for 2 months. The bootcamp tought me about Backend and the language i use is Express.js',
+				icon: React.createElement(CgWorkAlt),
+				date: '2022',
+			},
+			{
+				title: 'Front-End Developer',
+				location: 'Indonesia, Bandung',
+				description:
+					'Sometimes i become a Back-End Developer on my current job, but my main is Front-End Developer and my stack is Next.JS and Nuxt.JS with Tailwind or Bootstrap as the Styling',
+				icon: React.createElement(FaReact),
+				date: '2022 - present',
+			},
+		],
+		indonesia: [
+			{
+				title: 'Praktik Kerja Lapangan',
+				location: 'Indonesia, Bandung Barat',
+				description:
+					'Saya mengikuti PKL selama kurang lebih 4 bulan, Saya menjadi Front-end Developer selama melakuakn PKL',
+				icon: React.createElement(LuGraduationCap),
+				date: '2021',
+			},
+			{
+				title: 'Bootcamp',
+				location: 'Indonesia, Bandung',
+				description:
+					'Setelah lulus sekolah, Saya mengikuti Bootcamp dari perusahaan tempat saya bekarja selama 1 bulan. Saya diajarkan mengenai Backend Development menggunakan tech Node JS dan Express JS. Saya menjadi lulusan terbaik dalam bacth yang saya ikuti.',
+				icon: React.createElement(CgWorkAlt),
+				date: '2022',
+			},
+			{
+				title: 'Front-End Developer',
+				location: 'Indonesia, Bandung',
+				description:
+					'Terkadang saya menjadi Backend developer dalam perusahaan tempat saya kerja sekarang, Tapi role utama saya adalah Front-End Developer dan stack saya adalah Next.JS dan Nuxt.JS dengan Tailwind atau Bootstrap sebagai stylingnya.',
+				icon: React.createElement(FaReact),
+				date: '2022 - present',
+			},
+		],
 	},
 ] as const
 
@@ -122,7 +152,7 @@ export const projectsData = {
 			imageUrl: halalinImg,
 		},
 	],
-} 
+}
 
 export const skillsData = [
 	'HTML',
