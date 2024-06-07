@@ -8,10 +8,13 @@ import useSectionInView from '@/lib/hooks'
 import ButtonContactForm from './ButtonContactForm'
 import toast from 'react-hot-toast'
 import { sendEmail } from '@/actions/sendEmail'
+import { useTranslations } from 'next-intl'
 
 export default function Contact() {
 	const { ref } = useSectionInView('Contact', 0.7)
 	const [loading, setLoading] = useState(false)
+
+	const t = useTranslations('Contact')
 
 	return (
 		<motion.section
@@ -31,17 +34,17 @@ export default function Contact() {
 				once: true,
 			}}
 		>
-			<SectionHeading>Contact Me</SectionHeading>
+			<SectionHeading>{t('label')}</SectionHeading>
 
 			<p className='text-gray-700 dark:text-white/80 -mt-6'>
-				Please contact me directly at{' '}
+				{t('subLabelOne')}{' '}
 				<a
 					href='mailto:bramsuryajohannespaulus.work@gmail.com'
 					className='underline'
 				>
 					bramsuryajohannespaulus.work@gmail.com
 				</a>{' '}
-				or through this form
+				{t('subLabelTwo')}
 			</p>
 
 			<form
@@ -69,14 +72,14 @@ export default function Contact() {
 					name='senderEmail'
 					type='email'
 					className='rounded-lg h-14 borderBlack px-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 dark:outline-none transition-all'
-					placeholder='Your email'
+					placeholder={t('formPlaceholderOne')}
 					required
 					maxLength={100}
 				/>
 				<textarea
 					name='message'
 					className='my-3 h-52 rounded-lg borderBlack p-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 dark:outline-none transition-all'
-					placeholder='Leave your message'
+					placeholder={t('formPlaceholderTwo')}
 					maxLength={5000}
 				></textarea>
 				<ButtonContactForm loading={loading} />

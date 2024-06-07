@@ -40,5 +40,13 @@
 	},
 	"Experience": {
 		"label": "My Experience"
+	},
+	"Contact": {
+		"label": "Contact Me",
+		"subLabelOne": "Please contact me directly at",
+		"subLabelTwo": "or through this form",
+		"formPlaceholderOne": "Your email",
+		"formPlaceholderTwo": "Leave your message",
+		"buttonText": "Contact me"
 	}
 }

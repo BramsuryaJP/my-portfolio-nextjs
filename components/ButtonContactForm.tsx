@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl'
 import React from 'react'
 import { FaPaperPlane } from 'react-icons/fa'
 
@@ -6,7 +7,7 @@ type ButtonContactFormProps = {
 }
 
 export default function ButtonContactForm({ loading }: ButtonContactFormProps) {
-	console.log(loading)
+	const t = useTranslations('Contact')
 
 	return (
 		<button
@@ -21,7 +22,7 @@ export default function ButtonContactForm({ loading }: ButtonContactFormProps) {
 				<div className='h-5 w-5 animate-spin rounded-full border-b-2 border-white'></div>
 			) : (
 				<>
-					Contact Me
+					{t('buttonText')}
 					<FaPaperPlane
 						className='text-xs opacity-70 transition-all group-hover:translate-x-1
           group-hover:-translate-y-1'

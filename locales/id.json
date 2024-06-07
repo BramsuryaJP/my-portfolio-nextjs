@@ -40,5 +40,13 @@
 	},
 	"Experience": {
 		"label": "Pengalaman Saya"
+	},
+	"Contact": {
+		"label": "Hubungi Saya",
+		"subLabelOne": "Mohon hubungi saya langsung di",
+		"subLabelTwo": "atau melalui form ini",
+		"formPlaceholderOne": "Email anda",
+		"formPlaceholderTwo": "Tinggalkan pesan anda",
+    "buttonText": "Hubungi saya"
 	}
 }
