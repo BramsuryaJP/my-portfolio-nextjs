@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import SectionHeading from './SectionHeading'
 import { motion } from 'framer-motion'
 import useSectionInView from '@/lib/hooks'
@@ -11,6 +11,7 @@ import { sendEmail } from '@/actions/sendEmail'
 
 export default function Contact() {
 	const { ref } = useSectionInView('Contact', 0.7)
+	const [loading, setLoading] = useState(false)
 
 	return (
 		<motion.section
@@ -44,15 +45,23 @@ export default function Contact() {
 			</p>
 
 			<form
-				action={async (formData) => {
+				onSubmit={async (event) => {
+					event.preventDefault() // prevent the default form submission
+					setLoading(true) // set loading to true when form is submitted
+
+					const formData = new FormData(event.currentTarget)
+
 					const { data, error } = await sendEmail(formData)
 
 					if (error) {
 						toast.error(error)
+						setLoading(false)
 						return
+					} else {
+						toast.success('Email sent successfully!')
 					}
 
-					toast.success('Email sent successfully!')
+					setLoading(false)
 				}}
 				className='mt-10 flex flex-col text-center dark:text-black'
 			>
@@ -70,7 +79,7 @@ export default function Contact() {
 					placeholder='Leave your message'
 					maxLength={5000}
 				></textarea>
-				<ButtonContactForm />
+				<ButtonContactForm loading={loading} />
 			</form>
 		</motion.section>
 	)

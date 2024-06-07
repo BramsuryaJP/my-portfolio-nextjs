@@ -1,9 +1,12 @@
 import React from 'react'
-import { experimental_useFormStatus as useFormStatus } from 'react-dom'
 import { FaPaperPlane } from 'react-icons/fa'
 
-export default function ButtonContactForm() {
-	const { pending } = useFormStatus()
+type ButtonContactFormProps = {
+	loading: boolean
+}
+
+export default function ButtonContactForm({ loading }: ButtonContactFormProps) {
+	console.log(loading)
 
 	return (
 		<button
@@ -12,9 +15,9 @@ export default function ButtonContactForm() {
           text-white rounded-full outline-none transition-all focus:scale-110 hover:scale-110 
           hover:bg-gray-950 active:scale-105 disabled:scale-100 disabled:bg-opacity-65 w-full dark:bg-white 
           dark:bg-opacity-20 dark:hover:bg-opacity-10'
-			disabled={pending}
+			disabled={loading}
 		>
-			{pending ? (
+			{loading ? (
 				<div className='h-5 w-5 animate-spin rounded-full border-b-2 border-white'></div>
 			) : (
 				<>
