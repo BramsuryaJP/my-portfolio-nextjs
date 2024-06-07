@@ -48,5 +48,9 @@
 		"formPlaceholderOne": "Your email",
 		"formPlaceholderTwo": "Leave your message",
 		"buttonText": "Contact me"
+	},
+	"Footer": {
+		"footerAbout": "About this website",
+		"footerMade": "built with"
 	}
 }

@@ -47,6 +47,10 @@
 		"subLabelTwo": "atau melalui form ini",
 		"formPlaceholderOne": "Email anda",
 		"formPlaceholderTwo": "Tinggalkan pesan anda",
-    "buttonText": "Hubungi saya"
+		"buttonText": "Hubungi saya"
+	},
+	"Footer": {
+		"footerAbout": "Tentang website ini",
+		"footerMade": "dibangun dengan"
 	}
 }
