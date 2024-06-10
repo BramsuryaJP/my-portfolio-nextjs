@@ -28,7 +28,6 @@ export default function About() {
 				<span className='italic'>{t('descFive')}</span> {t('descSix')}{' '}
 				<span className='underline'>{t('descSeven')}</span> {t('descEight')}{' '}
 				<span className='font-medium'>{t('descNine')}</span>. {t('descTen')}{' '}
-				<span className='font-medium'>{t('descEleven')}</span> {t('descTwelve')}
 			</p>
 
 			<p>
