@@ -21,6 +21,10 @@ export const links = [
 		hash: '#projects',
 	},
 	{
+		name: 'Blogs',
+		hash: '#blogs',
+	},
+	{
 		name: 'Skills',
 		hash: '#skills',
 	},
@@ -173,6 +177,6 @@ export const skillsData = [
 	'PostgreSQL',
 	'Redux',
 	'Express',
-  'Nest JS',
+	'Nest JS',
 	'Framer Motion',
 ] as const
