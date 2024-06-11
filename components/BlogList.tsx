@@ -1,16 +1,16 @@
 'use client'
 
 import { getBlogList } from '@/api/Blog'
-import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+import React, { useEffect, useState } from 'react'
 import SectionHeading from './SectionHeading'
 import useSectionInView from '@/lib/hooks'
+import BlogCard from './BlogCard'
 
 export default function BlogList() {
 	const devToUsername = 'bramsuryajp'
 	const [blogList, setBlogList] = useState([])
 
-	const { ref } = useSectionInView('Blogs', 0.75)
+	const { ref } = useSectionInView('Blogs', 0.8)
 
 	useEffect(() => {
 		const fetchBlogList = async () => {
@@ -21,18 +21,20 @@ export default function BlogList() {
 		fetchBlogList()
 	}, [])
 
-	console.log(blogList)
-
 	return (
-		<motion.section
+		<section
 			ref={ref}
-			initial={{ opacity: 0, y: 100 }}
-			animate={{ opacity: 1, y: 0 }}
-			transition={{ delay: 0.175 }}
-			className='mb-28 max-w-[45rem] text-center !leading-8 sm:mb-40 scroll-mt-28'
+			className='mb-28 max-w-5xl sm:mb-40 scroll-mt-28'
 			id='blogs'
 		>
 			<SectionHeading>Blogs</SectionHeading>
-		</motion.section>
+			<div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+				{blogList.map((blog, index) => (
+					<React.Fragment key={index}>
+						<BlogCard blogList={blog} />
+					</React.Fragment>
+				))}
+			</div>
+		</section>
 	)
 }

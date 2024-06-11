@@ -4,6 +4,7 @@ export const locales = ['en', 'id'] as const
 
 export const pathnames = {
 	'/': '/',
+  '/blog/[blogId]': '/blog/[blogId]',
 } satisfies Pathnames<typeof locales>
 
 // Use the default: `always`
