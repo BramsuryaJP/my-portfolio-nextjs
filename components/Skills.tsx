@@ -8,7 +8,7 @@ import { motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 
 export default function Skills() {
-	const { ref } = useSectionInView('Skills', 0.6)
+	const { ref } = useSectionInView('Skills', 0.9)
 	const t = useTranslations('Skill')
 
 	const fadeInAnimationVariant = {

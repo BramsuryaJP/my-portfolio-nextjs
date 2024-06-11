@@ -42,12 +42,17 @@ export default function Header() {
 							}}
 							animate={{ y: 0, opacity: 1 }}
 						>
-							<Link
+							<button
 								onClick={() => {
 									setActiveSection(link.name)
 									setTimeOfLastClick(Date.now())
+									const element = document.getElementById(
+										link.name.toLowerCase(),
+									)
+									if (element) {
+										element.scrollIntoView({ behavior: 'smooth' })
+									}
 								}}
-								href={link.hash}
 								className={clsx(
 									'flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 dark:text-gray-500 dark:hover:text-gray-300 transition',
 									{
@@ -69,7 +74,7 @@ export default function Header() {
 										}}
 									></motion.span>
 								)}
-							</Link>
+							</button>
 						</motion.li>
 					))}
 				</ul>
