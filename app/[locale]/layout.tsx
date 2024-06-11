@@ -1,5 +1,4 @@
 import Header from '@/components/Header'
-import { notFound } from 'next/navigation'
 import './globals.css'
 import { Inter } from 'next/font/google'
 import ActiveSectionContextProvider from '@/context/ActiveSectionContextProvider'
@@ -7,9 +6,9 @@ import { Toaster } from 'react-hot-toast'
 import ThemeToggler from '@/components/ThemeToggler'
 import LangToggler from '@/components/LangToggler'
 import ThemeContextProvider from '@/context/ThemeContextProvider'
-import { locales } from '../../config'
 import { ReactNode } from 'react'
-import { NextIntlClientProvider, useMessages } from 'next-intl'
+import { NextIntlClientProvider } from 'next-intl'
+import { getMessages } from 'next-intl/server'
 
 const inter = Inter({
 	subsets: ['latin'],
@@ -25,10 +24,11 @@ export const metadata = {
 	description: 'Bramsurya is a front-end developer with 2 years of experience.',
 }
 
-export default function RootLayout({ children, params: { locale } }: Props) {
-	const messages = useMessages()
-
-	if (!locales.includes(locale as any)) notFound()
+export default async function RootLayout({
+	children,
+	params: { locale },
+}: Props) {
+	const messages = await getMessages()
 
 	return (
 		<html lang={locale} className='!scroll-smooth'>
