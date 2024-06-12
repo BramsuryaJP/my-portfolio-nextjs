@@ -42,7 +42,26 @@ export default function DetailBlog({ params }: { params: { slug: string } }) {
           dark:bg-white/10 rounded-2xl border border-black/5'
 				>
 					<div className='mb-10'>
-						<p className='text-sm font-medium mb-5'>{formattedDate}</p>
+						<div className='flex flex-row gap-5 justify-between mb-5'>
+							<p className='text-sm font-medium'>{formattedDate}</p>
+							<p className='text-xs flex flex-row items-center gap-1 sm:hidden'>
+								<svg
+									xmlns='http://www.w3.org/2000/svg'
+									fill='none'
+									viewBox='0 0 24 24'
+									strokeWidth={1.5}
+									stroke='currentColor'
+									className='w-5'
+								>
+									<path
+										strokeLinecap='round'
+										strokeLinejoin='round'
+										d='M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z'
+									/>
+								</svg>
+								{blogData.reading_time_minutes} min read
+							</p>
+						</div>
 						<h1 className='text-4xl font-bold mb-5'>{blogData.title}</h1>
 						<div className='flex items-center justify-between'>
 							<div className='flex flex-wrap w-fit gap-1'>
@@ -56,7 +75,7 @@ export default function DetailBlog({ params }: { params: { slug: string } }) {
 									</div>
 								))}
 							</div>
-							<p className='text-xs flex flex-row items-center gap-1'>
+							<p className='hidden text-xs sm:flex flex-row items-center gap-1'>
 								<svg
 									xmlns='http://www.w3.org/2000/svg'
 									fill='none'
