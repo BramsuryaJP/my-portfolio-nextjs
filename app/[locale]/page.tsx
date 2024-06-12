@@ -13,7 +13,7 @@ export default function Home() {
 	return (
 		<>
 			<Header />
-			<main className='flex flex-col items-center px-4 scroll-mt-28'>
+			<main className='flex flex-col items-center px-4 scroll-mt-28 pt-28 sm:pt-36'>
 				<Intro />
 				<SectionDivider />
 				<About />

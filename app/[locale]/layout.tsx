@@ -33,7 +33,7 @@ export default async function RootLayout({
 	return (
 		<html lang={locale} className='!scroll-smooth'>
 			<body
-				className={`${inter.className} bg-gray-50 text-gray-950 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90 relative pt-28 sm:pt-36`}
+				className={`${inter.className} bg-gray-50 text-gray-950 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90 relative`}
 			>
 				<div
 					className='absolute -z-10 right-[11rem] top-[-6rem] h-[31.25rem] w-[31.25rem] rounded-full 
