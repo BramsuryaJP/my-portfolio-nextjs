@@ -16,3 +16,10 @@ export const getBlogListBySlug = async (
 	)
 	return res.data
 }
+
+export const getBlogComments = async (articleId: string) => {
+	const res = await axios.get(
+		`https://dev.to/api/comments?a_id=${articleId}?sort=-created_at`,
+	)
+	return res.data
+}
