@@ -6,6 +6,7 @@ interface Blog {
 	title: string
 	tag_list: string[]
 	description: string
+  slug: string
 	// include other properties as needed
 }
 
@@ -48,7 +49,7 @@ relative sm:h-[22rem] transition flex dark:bg-white/10 dark:text-white'
 					<p className='mt-4 leading-relaxed text-gray-700 dark:text-white/70'>
 						{blogList.description}
 					</p>
-					<Link href={`/blog/${blogList.id}`} className='hidden xl:block'>
+					<Link href={`/blog/${blogList.slug}`} className='hidden xl:block'>
 						<motion.button
 							className='p-2 border border-black/20 dark:border-white/80 transition duration-200 hover:shadow-[0_0_5px_0_rgba(0,0,0,1)] dark:hover:shadow-[0_0_5px_0_rgba(255,255,255,1)] absolute bottom-5 right-5 rounded-xl text-sm'
 							variants={buttonVariants}
@@ -61,7 +62,7 @@ relative sm:h-[22rem] transition flex dark:bg-white/10 dark:text-white'
 							Read More
 						</motion.button>
 					</Link>
-					<Link href={`/blog/${blogList.id}`} className='xl:hidden'>
+					<Link href={`/blog/${blogList.slug}`} className='xl:hidden'>
 						<button className='p-2 mt-5 w-full border border-black/20 dark:border-white/80 transition duration-200 hover:shadow-[0_0_5px_0_rgba(0,0,0,1)] dark:hover:shadow-[0_0_5px_0_rgba(255,255,255,1)] rounded-xl text-sm'>
 							Read More
 						</button>
