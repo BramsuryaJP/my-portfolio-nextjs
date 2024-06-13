@@ -24,7 +24,7 @@ export default async function Blog() {
 	const data = await response
 
 	return (
-		<div className='flex flex-col items-center px-4 scroll-mt-28 pt-28 sm:pt-36'>
+		<div className='flex flex-col items-center px-4 scroll-mt-28 pt-28 sm:pt-36 mb-20 sm:mb-28'>
 			<SectionHeading>My Blogs</SectionHeading>
 			<div className='max-w-5xl w-fit items-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
 				{data.map((blog: Blog, index: number) => (

@@ -87,8 +87,8 @@ export default function BlogDetail({ blogData, commentData }: BlogDetailProps) {
 	}
 
 	return (
-		<div className='w-full flex flex-col items-center justify-center p-4'>
-			<div className='my-0 sm:my-10 lg:my-20 flex flex-col gap-5'>
+		<div className='w-full flex flex-col items-center justify-center p-4 scroll-mt-28 pt-28 sm:pt-36 mb-20 sm:mb-28'>
+			<div className='flex flex-col gap-5'>
 				<button
 					onClick={() => {
 						router.back()
@@ -158,7 +158,7 @@ export default function BlogDetail({ blogData, commentData }: BlogDetailProps) {
 					<MdxContent markdown={blogData.body_markdown} />
 				</div>
 				<div
-					className='w-full max-w-4xl mt-10 sm:mt-0 mb-0 sm:mb-10 lg:mb-20 p-5 sm:p-10 bg-gray-100
+					className='w-full max-w-4xl mt-10 sm:mt-0 p-5 sm:p-10 bg-gray-100
       dark:bg-white/10 rounded-2xl border border-black/5'
 				>
 					<div className='max-w-prose w-full'>

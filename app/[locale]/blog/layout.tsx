@@ -1,4 +1,5 @@
 import BlogHeader from '@/components/Blog/BlogHeader'
+import Footer from '@/components/Footer'
 import { ReactNode } from 'react'
 
 type Props = {
@@ -10,6 +11,7 @@ export default async function blogLayout({ children }: Props) {
 		<div>
 			<BlogHeader />
 			{children}
+			<Footer />
 		</div>
 	)
 }
