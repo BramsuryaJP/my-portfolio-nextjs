@@ -59,7 +59,7 @@ export default function BlogList() {
 								frequency: 0.4,
 								offset: 50,
 								speed: 4,
-								color: theme === 'dark' ? '#000' : 'fff',
+								color: theme === 'dark' ? '#000' : '#fff',
 							}}
 							motionConfig={{
 								amplitude: {
@@ -84,7 +84,7 @@ export default function BlogList() {
 								},
 								color: {
 									value: theme === 'light' ? '#000' : '#fff',
-									duration: 6,
+									duration: 4,
 								},
 							}}
 						/>
