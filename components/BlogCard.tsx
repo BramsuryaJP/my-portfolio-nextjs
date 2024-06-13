@@ -6,19 +6,34 @@ interface Blog {
 	title: string
 	tag_list: string[]
 	description: string
-  slug: string
+	slug: string
 	// include other properties as needed
 }
 
 interface BlogCardProps {
-	blogList: Blog
+	blogList: Blog,
+  index: number
 }
 
-export default function BlogCard({ blogList }: BlogCardProps) {
+export default function BlogCard({ blogList, index }: BlogCardProps) {
 	const buttonVariants = {
 		hidden: { opacity: 0, y: -1 },
 		visible: { opacity: 1 },
 		exit: { opacity: 0, y: 0 },
+	}
+
+	const fadeInAnimationVariant = {
+		initial: {
+			opacity: 0,
+			y: 100,
+		},
+		animate: (index: number) => ({
+			opacity: 1,
+			y: 0,
+			transition: {
+				delay: 0.05 * index,
+			},
+		}),
 	}
 
 	const control = useAnimation()
@@ -27,6 +42,13 @@ export default function BlogCard({ blogList }: BlogCardProps) {
 		<motion.div
 			key={blogList.id}
 			className='group'
+			variants={fadeInAnimationVariant}
+			initial='initial'
+			whileInView='animate'
+			viewport={{
+				once: true,
+			}}
+			custom={index}
 			onMouseEnter={() => control.start('visible')}
 			onMouseLeave={() => control.start('hidden')}
 		>

@@ -2,10 +2,11 @@
 
 import { getBlogList } from '@/api/Blog'
 import React, { useEffect, useState } from 'react'
+import dynamic from 'next/dynamic'
+import { motion } from 'framer-motion'
 import SectionHeading from './SectionHeading'
 import useSectionInView from '@/lib/hooks'
 import BlogCard from './BlogCard'
-import dynamic from 'next/dynamic'
 import { Link } from '@/navigation'
 import { useTheme } from '@/context/ThemeContextProvider'
 
@@ -31,6 +32,20 @@ export default function BlogList() {
 		fetchBlogList()
 	}, [])
 
+	const fadeInAnimationVariant = {
+		initial: {
+			opacity: 0,
+			y: 100,
+		},
+		animate: () => ({
+			opacity: 1,
+			y: 0,
+			transition: {
+				delay: 0.05,
+			},
+		}),
+	}
+
 	return (
 		<section
 			ref={ref}
@@ -41,10 +56,18 @@ export default function BlogList() {
 			<div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
 				{blogList.map((blog, index) => (
 					<React.Fragment key={index}>
-						<BlogCard blogList={blog} />
+						<BlogCard blogList={blog} index={index} />
 					</React.Fragment>
 				))}
-				<div className='relative h-[20rem] md:h-full rounded-lg border border-black/5 p-2.5 text-sm transition-[filter] duration-700'>
+				<motion.div
+					className='relative h-[20rem] md:h-full rounded-lg border border-black/5 p-2.5 text-sm transition-[filter] duration-700'
+					variants={fadeInAnimationVariant}
+					initial='initial'
+					whileInView='animate'
+					viewport={{
+						once: true,
+					}}
+				>
 					<div
 						className='absolute inset-0 overflow-clip'
 						onMouseEnter={() => setEnter(true)}
@@ -95,7 +118,7 @@ export default function BlogList() {
 							Explore More
 						</Link>
 					</div>
-				</div>
+				</motion.div>
 			</div>
 		</section>
 	)
