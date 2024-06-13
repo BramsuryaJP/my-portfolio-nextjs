@@ -9,7 +9,16 @@ const hostnames = ['media.dev.to']
 /** @type {import('next').NextConfig} */
 const config = {
 	images: {
-		remotePatterns: hostnames.map(hostname => ({ protocol: 'https', hostname }))
+		remotePatterns: hostnames.map((hostname) => ({
+			protocol: 'https',
+			hostname,
+		})),
+	},
+	experimental: {
+		staleTimes: {
+			dynamic: 120,
+			static: 120,
+		},
 	},
 }
 
