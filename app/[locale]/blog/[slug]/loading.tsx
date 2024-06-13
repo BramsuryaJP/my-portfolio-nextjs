@@ -1,8 +1,8 @@
 export default function loading() {
 	return (
-		<div className='w-full flex justify-center p-4'>
+		<div className='w-full flex justify-center p-4 scroll-mt-28 pt-28 sm:pt-36 mb-20 sm:mb-28'>
 			<div
-				className='w-full max-w-4xl my-0 sm:my-10 lg:my-20 p-10 bg-gray-100
+				className='w-full max-w-4xl p-10 bg-gray-100
 dark:bg-white/10 rounded-2xl border border-black/5'
 			>
 				<div className=' animate-pulse'>
