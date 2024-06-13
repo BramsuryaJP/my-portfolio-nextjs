@@ -12,9 +12,9 @@ export default function BlogHeader() {
 	return (
 		<header className='z-[999] relative'>
 			<motion.div
-				className='fixed top-0 left-1/2 h-[4.5rem] w-[11rem] rounded-none border border-opacity-40 
+				className='fixed top-0 left-1/2 h-[3.25rem] w-full sm:w-[11rem] rounded-none border border-opacity-40 
         bg-white bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] sm:top-6 
-        sm:h-[3.25rem] sm:rounded-full dark:bg-gray-950 dark:bg-opacity-75 dark:border-black/40'
+        sm:rounded-full dark:bg-gray-950 dark:bg-opacity-75 dark:border-black/40'
 				initial={{
 					y: -100,
 					x: '-50%',
