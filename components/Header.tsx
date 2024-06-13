@@ -16,7 +16,7 @@ export default function Header() {
 			<motion.div
 				className='fixed top-0 left-1/2 h-[4.5rem] w-full rounded-none border border-opacity-40 
         bg-white bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] sm:top-6 
-        sm:h-[3.25rem] sm:w-[41rem] sm:rounded-full dark:bg-gray-950 dark:bg-opacity-75 dark:border-black/40'
+        sm:h-[3.25rem] sm:w-[41rem] px-4 sm:rounded-full dark:bg-gray-950 dark:bg-opacity-75 dark:border-black/40'
 				initial={{
 					y: -100,
 					x: '-50%',
@@ -42,16 +42,11 @@ export default function Header() {
 							}}
 							animate={{ y: 0, opacity: 1 }}
 						>
-							<button
+							<Link
+								href={link.hash}
 								onClick={() => {
 									setActiveSection(link.name)
 									setTimeOfLastClick(Date.now())
-									const element = document.getElementById(
-										link.name.toLowerCase(),
-									)
-									if (element) {
-										element.scrollIntoView({ behavior: 'smooth' })
-									}
 								}}
 								className={clsx(
 									'flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 dark:text-gray-500 dark:hover:text-gray-300 transition',
@@ -74,7 +69,7 @@ export default function Header() {
 										}}
 									></motion.span>
 								)}
-							</button>
+							</Link>
 						</motion.li>
 					))}
 				</ul>

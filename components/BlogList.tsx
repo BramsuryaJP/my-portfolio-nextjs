@@ -54,7 +54,7 @@ export default function BlogList() {
 		>
 			<SectionHeading>Blogs</SectionHeading>
 			<div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
-				{blogList.map((blog, index) => (
+				{blogList.slice(0, 2).map((blog, index) => (
 					<React.Fragment key={index}>
 						<BlogCard blogList={blog} index={index} />
 					</React.Fragment>

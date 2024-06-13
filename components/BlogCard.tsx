@@ -11,8 +11,8 @@ interface Blog {
 }
 
 interface BlogCardProps {
-	blogList: Blog,
-  index: number
+	blogList: Blog
+	index: number
 }
 
 export default function BlogCard({ blogList, index }: BlogCardProps) {

@@ -2,14 +2,14 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import { links } from '@/lib/data'
+import { BlogLinks, links } from '@/lib/data'
 import clsx from 'clsx'
-import { useActivePageContext } from '@/context/ActivePageContextProvider'
-import { Link } from '@/navigation'
+import { Link, usePathname } from '@/navigation'
 
 export default function BlogHeader() {
-	const { activePage, setActivePage, setTimeOfLastClick } =
-		useActivePageContext()
+	const pathname = usePathname()
+
+	console.log(pathname)
 
 	return (
 		<header className='z-[999] relative'>
@@ -32,47 +32,41 @@ export default function BlogHeader() {
 					className='flex w-[22rem] flex-wrap items-center justify-center gap-y-1 text-[0.9rem] font-medium
         text-gray-500 sm:w-[initial] sm:flex-nowrap sm:gap-5'
 				>
-					{links
-						.filter((link) => link.name === 'Home' || link.name === 'Blogs')
-						.map((link) => (
-							<motion.li
-								key={link.hash}
-								className='h-3/4 flex items-center justify-center relative'
-								initial={{
-									y: -100,
-									opacity: 0,
-								}}
-								animate={{ y: 0, opacity: 1 }}
+					{BlogLinks.map((link) => (
+						<motion.li
+							key={link.hash}
+							className='h-3/4 flex items-center justify-center relative'
+							initial={{
+								y: -100,
+								opacity: 0,
+							}}
+							animate={{ y: 0, opacity: 1 }}
+						>
+							<Link
+								href={link.hash}
+								className={clsx(
+									'flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 dark:text-gray-500 dark:hover:text-gray-300 transition',
+									{
+										'text-gray-950 dark:!text-gray-300': pathname === link.hash,
+									},
+								)}
 							>
-								<Link
-									href={link.hash}
-									onClick={() => {
-										setTimeOfLastClick(Date.now())
-									}}
-									className={clsx(
-										'flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 dark:text-gray-500 dark:hover:text-gray-300 transition',
-										{
-											'text-gray-950 dark:!text-gray-300':
-												activePage === link.hash,
-										},
-									)}
-								>
-									{link.name}
+								{link.name}
 
-									{link.hash === activePage && (
-										<motion.span
-											className='rounded-full -z-10 bg-gray-100 dark:bg-gray-800 absolute inset-0'
-											layoutId='activePage'
-											initial={{
-												y: -100,
-												opacity: 0,
-											}}
-											animate={{ y: 0, opacity: 1 }}
-										></motion.span>
-									)}
-								</Link>
-							</motion.li>
-						))}
+								{link.hash === pathname && (
+									<motion.span
+										className='rounded-full -z-10 bg-gray-100 dark:bg-gray-800 absolute inset-0'
+										layoutId='activePage'
+										initial={{
+											y: 0,
+											opacity: 0,
+										}}
+										animate={{ y: 0, opacity: 1 }}
+									></motion.span>
+								)}
+							</Link>
+						</motion.li>
+					))}
 				</ul>
 			</nav>
 		</header>
