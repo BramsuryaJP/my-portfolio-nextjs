@@ -10,31 +10,31 @@ import halalinImg from '@/public/halalin.png'
 export const links = [
 	{
 		name: 'Home',
-		hash: '#home',
+		hash: '/',
 	},
 	{
 		name: 'About',
-		hash: '#about',
+		hash: '/about',
 	},
 	{
 		name: 'Projects',
-		hash: '#projects',
+		hash: '/projects',
 	},
 	{
 		name: 'Blogs',
-		hash: '#blogs',
+		hash: '/blog',
 	},
 	{
 		name: 'Skills',
-		hash: '#skills',
+		hash: '/skills',
 	},
 	{
 		name: 'Experience',
-		hash: '#experience',
+		hash: '/experience',
 	},
 	{
 		name: 'Contact',
-		hash: '#contact',
+		hash: '/contact',
 	},
 ] as const
 
