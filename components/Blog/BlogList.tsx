@@ -61,7 +61,7 @@ export default function BlogList({ blogListData }: BlogListDataProps) {
 					}}
 				>
 					<div
-						className='absolute inset-0 overflow-clip'
+						className='absolute inset-0 overflow-clip rounded-lg'
 						onMouseEnter={() => setEnter(true)}
 						onMouseLeave={() => setEnter(false)}
 					>
