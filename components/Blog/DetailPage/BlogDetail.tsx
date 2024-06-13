@@ -88,7 +88,7 @@ export default function BlogDetail({ blogData, commentData }: BlogDetailProps) {
 
 	return (
 		<div className='w-full flex flex-col items-center justify-center p-4 scroll-mt-28 pt-28 sm:pt-36 mb-20 sm:mb-28'>
-			<div className='flex flex-col gap-5'>
+			<div className='w-full flex flex-col gap-5'>
 				<button
 					onClick={() => {
 						router.back()
