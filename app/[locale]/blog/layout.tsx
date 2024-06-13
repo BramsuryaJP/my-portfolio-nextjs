@@ -1,4 +1,4 @@
-import BlogHeader from '@/components/BlogHeader'
+import BlogHeader from '@/components/Blog/BlogHeader'
 import { ReactNode } from 'react'
 
 type Props = {

@@ -2,14 +2,12 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import { BlogLinks, links } from '@/lib/data'
+import { BlogLinks } from '@/lib/data'
 import clsx from 'clsx'
 import { Link, usePathname } from '@/navigation'
 
 export default function BlogHeader() {
 	const pathname = usePathname()
-
-	console.log(pathname)
 
 	return (
 		<header className='z-[999] relative'>

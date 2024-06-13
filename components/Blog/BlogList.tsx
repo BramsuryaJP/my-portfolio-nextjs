@@ -1,10 +1,9 @@
 'use client'
 
-import { getBlogList } from '@/api/Blog'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import dynamic from 'next/dynamic'
 import { motion } from 'framer-motion'
-import SectionHeading from './SectionHeading'
+import SectionHeading from '../SectionHeading'
 import useSectionInView from '@/lib/hooks'
 import BlogCard from './BlogCard'
 import { Link } from '@/navigation'
@@ -15,22 +14,15 @@ const MotionWave = dynamic(
 	{ ssr: false },
 )
 
-export default function BlogList() {
-	const devToUsername = 'bramsuryajp'
+type BlogListDataProps = {
+	blogListData: []
+}
+
+export default function BlogList({ blogListData }: BlogListDataProps) {
 	const { theme } = useTheme()
 	const [enter, setEnter] = useState(false)
-	const [blogList, setBlogList] = useState([])
 
 	const { ref } = useSectionInView('Blogs', 0.8)
-
-	useEffect(() => {
-		const fetchBlogList = async () => {
-			const data = await getBlogList(devToUsername)
-			setBlogList(data)
-		}
-
-		fetchBlogList()
-	}, [])
 
 	const fadeInAnimationVariant = {
 		initial: {
@@ -54,13 +46,13 @@ export default function BlogList() {
 		>
 			<SectionHeading>Blogs</SectionHeading>
 			<div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
-				{blogList.slice(0, 2).map((blog, index) => (
+				{blogListData.slice(0, 2).map((blog, index) => (
 					<React.Fragment key={index}>
 						<BlogCard blogList={blog} index={index} />
 					</React.Fragment>
 				))}
 				<motion.div
-					className='relative h-[20rem] md:h-full rounded-lg border border-black/5 p-2.5 text-sm transition-[filter] duration-700'
+					className='relative h-[18rem] md:h-full rounded-lg border border-black/5 p-2.5 text-sm transition-[filter] duration-700'
 					variants={fadeInAnimationVariant}
 					initial='initial'
 					whileInView='animate'

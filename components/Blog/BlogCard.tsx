@@ -1,3 +1,5 @@
+'use client'
+
 import { motion, useAnimation } from 'framer-motion'
 import { Link } from '@/navigation'
 
@@ -53,10 +55,10 @@ export default function BlogCard({ blogList, index }: BlogCardProps) {
 			onMouseLeave={() => control.start('hidden')}
 		>
 			<section
-				className='bg-gray-100 max-w-[20rem] border border-black/5 rounded-lg overflow-hidden 
-relative sm:h-[22rem] transition flex dark:bg-white/10 dark:text-white'
+				className='bg-gray-100 max-w-full border border-black/5 rounded-lg overflow-hidden 
+relative h-[18rem] sm:h-[22rem] transition flex dark:bg-white/10 dark:text-white'
 			>
-				<div className='p-5 relative w-full'>
+				<div className='p-5 relative w-full flex flex-col'>
 					<h3 className='text-lg font-semibold'>{blogList.title}</h3>
 					<div className='flex flex-wrap w-full gap-1'>
 						{blogList.tag_list.map((tag, index) => (
@@ -68,7 +70,7 @@ relative sm:h-[22rem] transition flex dark:bg-white/10 dark:text-white'
 							</div>
 						))}
 					</div>
-					<p className='mt-4 leading-relaxed text-gray-700 dark:text-white/70'>
+					<p className='mt-4 leading-relaxed text-gray-700 dark:text-white/70 flex-1'>
 						{blogList.description}
 					</p>
 					<Link href={`/blog/${blogList.slug}`} className='hidden xl:block'>

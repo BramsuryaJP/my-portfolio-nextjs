@@ -1,5 +1,5 @@
 import About from '@/components/About'
-import BlogList from '@/components/BlogList'
+import Blog from '@/components/Blog/index'
 import Contact from '@/components/Contact'
 import Experience from '@/components/Experience'
 import Footer from '@/components/Footer'
@@ -9,7 +9,7 @@ import Projects from '@/components/Projects'
 import SectionDivider from '@/components/SectionDivider'
 import Skills from '@/components/Skills'
 
-export default function Home() {
+export default async function Home() {
 	return (
 		<>
 			<Header />
@@ -18,7 +18,7 @@ export default function Home() {
 				<SectionDivider />
 				<About />
 				<Projects />
-				<BlogList />
+				<Blog />
 				<Skills />
 				<Experience />
 				<Contact />
