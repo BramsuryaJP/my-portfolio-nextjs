@@ -88,12 +88,12 @@ export default function BlogDetail({ blogData, commentData }: BlogDetailProps) {
 
 	return (
 		<div className='w-full flex flex-col items-center justify-center p-4 scroll-mt-28 pt-28 sm:pt-36 mb-20 sm:mb-28'>
-			<div className='w-full flex flex-col gap-5'>
+			<div className='w-full flex flex-col items-center justify-center gap-5'>
 				<button
 					onClick={() => {
 						router.back()
 					}}
-					className='w-full flex justify-start'
+					className='w-full flex max-w-4xl justify-start'
 				>
 					Back
 				</button>
