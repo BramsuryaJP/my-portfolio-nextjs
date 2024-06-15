@@ -10,16 +10,16 @@ export const getBlogList = cache(async (username: string) => {
 
 export const getBlogListBySlug = cache(
 	async (username: string, articleSlug: string) => {
-		const res = await axios.get(
+		const res = await fetch(
 			`https://dev.to/api/articles/${username}/${articleSlug}`,
 		)
-		return res.data
+		return res.json()
 	},
 )
 
 export const getBlogComments = cache(async (articleId: string) => {
-	const res = await axios.get(
+	const res = await fetch(
 		`https://dev.to/api/comments?a_id=${articleId}?sort=-created_at`,
 	)
-	return res.data
+	return res.json()
 })

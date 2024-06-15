@@ -1,5 +1,6 @@
 import { getBlogComments, getBlogListBySlug } from '@/api/Blog'
 import BlogDetail from '@/components/Blog/DetailPage/BlogDetail'
+import { notFound } from 'next/navigation'
 
 export const revalidate = 300
 
@@ -19,6 +20,12 @@ export default async function DetailBlog({
 	const commentResponse = await getBlogComments(blogData.id)
 
 	const commentData = await commentResponse
+
+	console.log(blogData)
+
+	if (blogData.status === 404 && commentData.status === 404) {
+		notFound()
+	}
 
 	return <BlogDetail blogData={blogData} commentData={commentData} />
 }

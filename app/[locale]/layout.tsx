@@ -8,6 +8,7 @@ import ThemeContextProvider from '@/context/ThemeContextProvider'
 import { ReactNode } from 'react'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
+import { notFound } from 'next/navigation'
 
 const inter = Inter({
 	subsets: ['latin'],
@@ -23,11 +24,15 @@ export const metadata = {
 	description: 'Bramsurya is a front-end developer with 2 years of experience.',
 }
 
-export default async function RootLayout({
+export default async function LocaleLayout({
 	children,
 	params: { locale },
 }: Props) {
 	const messages = await getMessages()
+
+	if (!messages) {
+		notFound()
+	}
 
 	return (
 		<html lang={locale} className='!scroll-smooth'>
