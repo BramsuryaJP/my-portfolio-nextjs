@@ -21,8 +21,6 @@ export default async function DetailBlog({
 
 	const commentData = await commentResponse
 
-	console.log(blogData)
-
 	if (blogData.status === 404 && commentData.status === 404) {
 		notFound()
 	}
