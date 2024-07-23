@@ -12,7 +12,7 @@ export default function Footer() {
 			<p className='text-xs'>
 				<span className='font-semibold'>{t('footerAbout')}:</span>{' '}
 				{t('footerMade')} React & Next.js (App Router & Server Actions),
-				TypeScript, Tailwind CSS, Framer Motion, Next Internationalization
+				TypeScript, Tailwind CSS, Bun, Framer Motion, Next Internationalization
 				(i18n), React Email & Resend, Axios, Vercel hosting.
 			</p>
 		</footer>
