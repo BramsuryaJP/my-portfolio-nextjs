@@ -1,11 +1,17 @@
 'use client'
 
-import { useTheme } from '@/context/ThemeContextProvider'
+import { useTheme } from 'next-themes'
 import React from 'react'
 import { BsMoon, BsSun } from 'react-icons/bs'
 
 export default function ThemeToggler() {
-	const { theme, toggleTheme } = useTheme()
+	const { systemTheme, theme, setTheme } = useTheme()
+
+	const toggleTheme = () => {
+		setTheme(theme === 'light' ? 'dark' : 'light')
+	}
+
+  const currentTheme = theme === 'system' ? systemTheme : theme;
 
 	return (
 		<button
@@ -14,7 +20,7 @@ export default function ThemeToggler() {
     items-center justify-center hover:scale-[1.15] active:scale-105 transition-all dark:bg-gray-950'
 			onClick={toggleTheme}
 		>
-			{theme === 'light' ? <BsSun /> : <BsMoon />}
+			{currentTheme === 'light' ? <BsMoon /> : <BsSun />}
 		</button>
 	)
 }

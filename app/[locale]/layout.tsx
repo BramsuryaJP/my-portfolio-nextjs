@@ -4,11 +4,11 @@ import ActiveSectionContextProvider from '@/context/ActiveSectionContextProvider
 import { Toaster } from 'react-hot-toast'
 import ThemeToggler from '@/components/ThemeToggler'
 import LangToggler from '@/components/LangToggler'
-import ThemeContextProvider from '@/context/ThemeContextProvider'
 import { ReactNode } from 'react'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
+import { ThemeProvider } from 'next-themes'
 
 const inter = Inter({
 	subsets: ['latin'],
@@ -49,7 +49,7 @@ export default async function LocaleLayout({
         sm:w-[68.75rem]'
 				></div>
 
-				<ThemeContextProvider>
+				<ThemeProvider attribute='class'>
 					<ActiveSectionContextProvider>
 						<NextIntlClientProvider messages={messages}>
 							{children}
@@ -58,7 +58,7 @@ export default async function LocaleLayout({
 							<Toaster position='top-right' />
 						</NextIntlClientProvider>
 					</ActiveSectionContextProvider>
-				</ThemeContextProvider>
+				</ThemeProvider>
 			</body>
 		</html>
 	)

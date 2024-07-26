@@ -7,7 +7,7 @@ import SectionHeading from '../SectionHeading'
 import useSectionInView from '@/lib/hooks'
 import BlogCard from './BlogCard'
 import { Link } from '@/navigation'
-import { useTheme } from '@/context/ThemeContextProvider'
+import { useTheme } from 'next-themes'
 
 const MotionWave = dynamic(
 	() => import('motion-wave').then((module) => module.MotionWave),
