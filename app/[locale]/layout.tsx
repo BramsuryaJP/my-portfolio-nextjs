@@ -9,6 +9,7 @@ import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { ThemeProvider } from 'next-themes'
+import RecaptchaProvider from '@/components/RecaptchaProvider'
 
 const inter = Inter({
 	subsets: ['latin'],
@@ -57,14 +58,16 @@ export default async function LocaleLayout({
 				></div>
 
 				<ThemeProvider attribute='class'>
-					<ActiveSectionContextProvider>
-						<NextIntlClientProvider messages={messages}>
-							{children}
-							<LangToggler />
-							<ThemeToggler />
-							<Toaster position='top-right' />
-						</NextIntlClientProvider>
-					</ActiveSectionContextProvider>
+					<RecaptchaProvider>
+						<ActiveSectionContextProvider>
+							<NextIntlClientProvider messages={messages}>
+								{children}
+								<LangToggler />
+								<ThemeToggler />
+								<Toaster position='top-right' />
+							</NextIntlClientProvider>
+						</ActiveSectionContextProvider>
+					</RecaptchaProvider>
 				</ThemeProvider>
 			</body>
 		</html>

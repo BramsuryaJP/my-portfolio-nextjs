@@ -10,6 +10,20 @@ const resend = new Resend(process.env.RESEND_API_KEY)
 export const sendEmail = async (formData: FormData) => {
 	const senderEmail = formData.get('senderEmail')
 	const message = formData.get('message')
+	const recaptchaToken = formData.get('recaptchaToken')
+
+	// Validate reCAPTCHA token
+	const recaptchaResponse = await fetch(
+		`https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${recaptchaToken}`,
+		{ method: 'POST' },
+	)
+	const recaptchaResult = await recaptchaResponse.json()
+
+	if (!recaptchaResult.success) {
+		return {
+			error: 'reCAPTCHA verification failed',
+		}
+	}
 
 	// simple server-side validation
 	if (!validateString(senderEmail, 500)) {
