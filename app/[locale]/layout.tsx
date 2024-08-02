@@ -10,7 +10,6 @@ import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { ThemeProvider } from 'next-themes'
 import RecaptchaProvider from '@/components/RecaptchaProvider'
-import { GoogleAnalytics } from '@/components/GoogleAnalytics'
 
 const inter = Inter({
 	subsets: ['latin'],
@@ -56,7 +55,6 @@ export default async function LocaleLayout({
 						<ActiveSectionContextProvider>
 							<NextIntlClientProvider messages={messages}>
 								{children}
-								<GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
 								<LangToggler />
 								<ThemeToggler />
 								<Toaster position='top-right' />

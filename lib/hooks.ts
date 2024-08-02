@@ -1,12 +1,9 @@
-import { useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { useActiveSectionContext } from '@/context/ActiveSectionContextProvider'
 import type { SectionName } from './types'
 
-export function useSectionInView(
-	sectionName: SectionName,
-	threshold = 0.75,
-) {
+export function useSectionInView(sectionName: SectionName, threshold = 0.75) {
 	const { ref, inView } = useInView({
 		threshold,
 	})
@@ -22,15 +19,18 @@ export function useSectionInView(
 }
 
 export function useGoogleAnalytics() {
-  const trackEvent = (action: string, category: string, label: string, value?: number) => {
-    window.gtag('event', action, {
-      event_category: category,
-      event_label: label,
-      value: value
-    });
-  };
+	const trackEvent = useCallback(
+		(action: string, category: string, label: string, value?: number) => {
+			if (typeof window !== 'undefined' && window.gtag) {
+				window.gtag('event', action, {
+					event_category: category,
+					event_label: label,
+					value: value,
+				})
+			}
+		},
+		[],
+	)
 
-  return { trackEvent };
+	return { trackEvent }
 }
-
-
