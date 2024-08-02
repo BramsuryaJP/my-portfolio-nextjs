@@ -1,23 +1,29 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, Suspense } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 import Script from 'next/script'
 
-export function GoogleAnalytics({ gaId }: { gaId: string }) {
+function GoogleAnalyticsContent({ gaId }: { gaId: string }) {
 	const pathname = usePathname()
 	const searchParams = useSearchParams()
 
 	useEffect(() => {
 		const handleRouteChange = (url: string) => {
-			window.gtag('config', gaId, {
-				page_path: url,
-			})
+			if (typeof window !== 'undefined' && window.gtag) {
+				window.gtag('config', gaId, {
+					page_path: url,
+				})
+			}
 		}
 
 		handleRouteChange(pathname + searchParams.toString())
 	}, [pathname, searchParams, gaId])
 
+	return null
+}
+
+export function GoogleAnalytics({ gaId }: { gaId: string }) {
 	return (
 		<>
 			<Script
@@ -38,6 +44,9 @@ export function GoogleAnalytics({ gaId }: { gaId: string }) {
           `,
 				}}
 			/>
+			<Suspense fallback={null}>
+				<GoogleAnalyticsContent gaId={gaId} />
+			</Suspense>
 		</>
 	)
 }

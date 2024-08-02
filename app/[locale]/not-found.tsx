@@ -1,11 +1,17 @@
 'use client'
 
+import { useGoogleAnalytics } from '@/lib/hooks'
 import { useRouter } from '@/navigation'
-import { Suspense } from 'react'
+import { useEffect, Suspense } from 'react'
 
 // Create a new component that uses the router
 function NotFoundContent() {
 	const router = useRouter()
+	const { trackEvent } = useGoogleAnalytics()
+
+	useEffect(() => {
+		trackEvent('view', '404_page', window.location.pathname)
+	}, [])
 
 	return (
 		<div className='flex items-center justify-center h-dvh sm:h-screen'>
@@ -24,6 +30,7 @@ function NotFoundContent() {
 						<button
 							type='button'
 							onClick={() => {
+								trackEvent('click', 'back_button', '404_page')
 								router.back()
 							}}
 							className='bg-gray-100 dark:bg-white/10 border border-black/5 rounded-md inline-flex text-black dark:text-white bg-primary-600 font-medium text-sm px-5 py-2.5 text-center my-4'
