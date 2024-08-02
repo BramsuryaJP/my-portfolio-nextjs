@@ -5,9 +5,11 @@ import { motion } from 'framer-motion'
 import { BlogLinks } from '@/lib/data'
 import clsx from 'clsx'
 import { Link, usePathname } from '@/navigation'
+import { useGoogleAnalytics } from '@/lib/hooks'
 
 export default function BlogHeader() {
 	const pathname = usePathname()
+	const { trackEvent } = useGoogleAnalytics()
 
 	return (
 		<header className='z-[999] relative'>
@@ -48,6 +50,9 @@ export default function BlogHeader() {
 										'text-gray-950 dark:!text-gray-300': pathname === link.hash,
 									},
 								)}
+								onClick={() =>
+									trackEvent('click', 'blog_navigation', link.name)
+								}
 							>
 								{link.name}
 

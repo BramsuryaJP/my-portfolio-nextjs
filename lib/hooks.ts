@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer'
 import { useActiveSectionContext } from '@/context/ActiveSectionContextProvider'
 import type { SectionName } from './types'
 
-export default function useSectionInView(
+export function useSectionInView(
 	sectionName: SectionName,
 	threshold = 0.75,
 ) {
@@ -20,3 +20,17 @@ export default function useSectionInView(
 
 	return { ref }
 }
+
+export function useGoogleAnalytics() {
+  const trackEvent = (action: string, category: string, label: string, value?: number) => {
+    window.gtag('event', action, {
+      event_category: category,
+      event_label: label,
+      value: value
+    });
+  };
+
+  return { trackEvent };
+}
+
+

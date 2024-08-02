@@ -8,7 +8,7 @@ import {
 } from 'react-vertical-timeline-component'
 import 'react-vertical-timeline-component/style.min.css'
 import { experiencesData } from '@/lib/data'
-import useSectionInView from '@/lib/hooks'
+import { useSectionInView } from '@/lib/hooks'
 import { useTranslations } from 'next-intl'
 import { useLocale } from 'next-intl'
 import { useTheme } from 'next-themes'

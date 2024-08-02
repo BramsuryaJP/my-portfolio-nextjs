@@ -9,6 +9,7 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
+		"@next/third-parties": "^14.2.5",
 		"@react-email/components": "^0.0.7",
 		"@react-email/tailwind": "^0.0.9",
 		"@tailwindcss/typography": "^0.5.13",

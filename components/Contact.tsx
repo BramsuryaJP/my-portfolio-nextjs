@@ -3,7 +3,7 @@
 import React, { useState, FormEvent } from 'react'
 import SectionHeading from './SectionHeading'
 import { motion } from 'framer-motion'
-import useSectionInView from '@/lib/hooks'
+import { useGoogleAnalytics, useSectionInView } from '@/lib/hooks'
 import ButtonContactForm from './ButtonContactForm'
 import toast from 'react-hot-toast'
 import { sendEmail } from '@/actions/sendEmail'
@@ -15,6 +15,7 @@ export default function Contact() {
 	const [loading, setLoading] = useState(false)
 	const { executeRecaptcha } = useGoogleReCaptcha()
 	const t = useTranslations('Contact')
+	const { trackEvent } = useGoogleAnalytics()
 
 	const [formData, setFormData] = useState({
 		senderEmail: '',
@@ -31,6 +32,7 @@ export default function Contact() {
 	const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault()
 		setLoading(true)
+		trackEvent('submit', 'form', 'contact_form')
 
 		if (!executeRecaptcha) {
 			toast.error('Unknown Error Occured')
@@ -53,12 +55,15 @@ export default function Contact() {
 
 			if (error) {
 				toast.error(error)
+				trackEvent('error', 'form_submission', 'contact_form')
 			} else {
 				toast.success('Email sent successfully!')
+				trackEvent('success', 'form_submission', 'contact_form')
 				setFormData({ senderEmail: '', message: '' }) // Reset form
 			}
 		} catch (error) {
 			console.error('An error occurred:', error)
+			trackEvent('error', 'form_submission', 'unexpected_error')
 			toast.error('An unexpected error occurred. Please try again.')
 		} finally {
 			setLoading(false)
@@ -82,6 +87,7 @@ export default function Contact() {
 				<a
 					href='mailto:bramsuryajohannespaulus.work@gmail.com'
 					className='underline'
+					onClick={() => trackEvent('click', 'email_link', 'contact_email')}
 				>
 					bramsuryajohannespaulus.work@gmail.com
 				</a>{' '}
@@ -97,6 +103,7 @@ export default function Contact() {
 					type='email'
 					value={formData.senderEmail}
 					onChange={handleInputChange}
+					onFocus={() => trackEvent('focus', 'form_input', 'email_input')}
 					className='rounded-lg h-14 borderBlack px-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 dark:outline-none transition-all'
 					placeholder={t('formPlaceholderOne')}
 					required
@@ -106,6 +113,7 @@ export default function Contact() {
 					name='message'
 					value={formData.message}
 					onChange={handleInputChange}
+					onFocus={() => trackEvent('focus', 'form_input', 'message_input')}
 					className='my-3 h-52 rounded-lg borderBlack p-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 dark:outline-none transition-all'
 					placeholder={t('formPlaceholderTwo')}
 					required

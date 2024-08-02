@@ -10,6 +10,7 @@ import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { ThemeProvider } from 'next-themes'
 import RecaptchaProvider from '@/components/RecaptchaProvider'
+import { GoogleAnalytics } from '@/components/GoogleAnalytics'
 
 const inter = Inter({
 	subsets: ['latin'],
@@ -37,13 +38,6 @@ export default async function LocaleLayout({
 
 	return (
 		<html lang={locale} className='!scroll-smooth'>
-			<head>
-				<script
-					defer
-					src='https://cloud.umami.is/script.js'
-					data-website-id='8dbc7893-5786-4af8-8a05-d9a7d1a21c44'
-				></script>
-			</head>
 			<body
 				className={`${inter.className} bg-gray-50 text-gray-950 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90 relative`}
 			>
@@ -62,6 +56,7 @@ export default async function LocaleLayout({
 						<ActiveSectionContextProvider>
 							<NextIntlClientProvider messages={messages}>
 								{children}
+								<GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
 								<LangToggler />
 								<ThemeToggler />
 								<Toaster position='top-right' />

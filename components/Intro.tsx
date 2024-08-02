@@ -9,7 +9,7 @@ import { BsArrowRight, BsGithub, BsLinkedin } from 'react-icons/bs'
 import { HiDownload } from 'react-icons/hi'
 
 import profileImage from '@/public/bram.jpg'
-import useSectionInView from '@/lib/hooks'
+import { useSectionInView } from '@/lib/hooks'
 import { useActiveSectionContext } from '@/context/ActiveSectionContextProvider'
 import { useTranslations } from 'next-intl'
 

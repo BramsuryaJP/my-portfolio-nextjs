@@ -1,17 +1,31 @@
 'use client'
 
+import { useGoogleAnalytics } from '@/lib/hooks'
 import { useTheme } from 'next-themes'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BsMoon, BsSun } from 'react-icons/bs'
 
 export default function ThemeToggler() {
 	const { systemTheme, theme, setTheme } = useTheme()
+	const { trackEvent } = useGoogleAnalytics()
 
 	const toggleTheme = () => {
-		setTheme(theme === 'light' ? 'dark' : 'light')
+		const newTheme = theme === 'light' ? 'dark' : 'light'
+		trackEvent('change', 'theme', newTheme)
+		setTheme(newTheme)
 	}
 
-  const currentTheme = theme === 'system' ? systemTheme : theme;
+	const currentTheme = theme === 'system' ? systemTheme : theme
+
+	useEffect(() => {
+		trackEvent('view', 'theme_toggle', currentTheme!)
+	}, [])
+
+	useEffect(() => {
+		if (theme === 'system') {
+			trackEvent('use', 'system_theme', systemTheme!)
+		}
+	}, [theme, systemTheme])
 
 	return (
 		<button

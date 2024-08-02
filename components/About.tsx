@@ -3,7 +3,7 @@
 import React from 'react'
 import SectionHeading from './SectionHeading'
 import { motion } from 'framer-motion'
-import useSectionInView from '@/lib/hooks'
+import { useSectionInView } from '@/lib/hooks'
 import { useTranslations } from 'next-intl'
 
 export default function About() {

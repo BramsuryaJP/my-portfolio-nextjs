@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import dynamic from 'next/dynamic'
 import { motion } from 'framer-motion'
 import SectionHeading from '../SectionHeading'
-import useSectionInView from '@/lib/hooks'
+import { useGoogleAnalytics, useSectionInView } from '@/lib/hooks'
 import BlogCard from './BlogCard'
 import { Link } from '@/navigation'
 import { useTheme } from 'next-themes'
@@ -21,6 +21,7 @@ type BlogListDataProps = {
 export default function BlogList({ blogListData }: BlogListDataProps) {
 	const { theme } = useTheme()
 	const [enter, setEnter] = useState(false)
+	const { trackEvent } = useGoogleAnalytics()
 
 	const { ref } = useSectionInView('Blogs', 0.8)
 
@@ -48,7 +49,11 @@ export default function BlogList({ blogListData }: BlogListDataProps) {
 			<div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
 				{blogListData.slice(0, 2).map((blog, index) => (
 					<React.Fragment key={index}>
-						<BlogCard blogList={blog} index={index} />
+						<BlogCard
+							blogList={blog}
+							index={index}
+							onClick={() => trackEvent('click', 'blog_card', `blog_${index}`)}
+						/>
 					</React.Fragment>
 				))}
 				<motion.div

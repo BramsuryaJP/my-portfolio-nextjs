@@ -1,12 +1,13 @@
 'use client'
 
-import { useTransition } from 'react'
+import { useEffect, useTransition } from 'react'
 import { useRouter, usePathname } from '../navigation'
 import { useLocale } from 'next-intl'
 
 import inaIcon from '@/public/ina-icon.svg'
 import enIcon from '@/public/en-icon.svg'
 import Image from 'next/image'
+import { useGoogleAnalytics } from '@/lib/hooks'
 
 export default function LangToggler() {
 	const router = useRouter()
@@ -14,14 +15,20 @@ export default function LangToggler() {
 	const [isPending, startTransition] = useTransition()
 	const pathname = usePathname()
 	const locale = useLocale()
+	const { trackEvent } = useGoogleAnalytics()
 
 	const nextLocale = locale === 'en' ? 'id' : 'en'
 
 	function onButtonClick() {
+		trackEvent('change', 'language', nextLocale)
 		startTransition(() => {
 			router.replace(pathname, { locale: nextLocale })
 		})
 	}
+
+	useEffect(() => {
+		trackEvent('view', 'language_toggle', locale)
+	}, [])
 
 	return (
 		<button

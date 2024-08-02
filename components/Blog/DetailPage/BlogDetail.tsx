@@ -5,6 +5,8 @@ import MdxContent from '@/components/MdxContent'
 import parse from 'html-react-parser'
 import Image from 'next/image'
 import { useRouter } from '@/navigation'
+import { useGoogleAnalytics } from '@/lib/hooks'
+import { useEffect } from 'react'
 
 interface BlogData {
 	id: string
@@ -40,11 +42,17 @@ export default function BlogDetail({ blogData, commentData }: BlogDetailProps) {
 
 	const format = useFormatter()
 
+	const { trackEvent } = useGoogleAnalytics()
+
 	const formattedDate = format.dateTime(new Date(blogData.published_at), {
 		year: 'numeric',
 		month: 'long',
 		day: 'numeric',
 	})
+
+	useEffect(() => {
+		trackEvent('view', 'blog_post', blogData.title)
+	}, [])
 
 	const renderComments = (comments: Comment[]) => {
 		return (
@@ -91,6 +99,7 @@ export default function BlogDetail({ blogData, commentData }: BlogDetailProps) {
 			<div className='w-full flex flex-col items-center justify-center gap-5'>
 				<button
 					onClick={() => {
+						trackEvent('click', 'back_button', 'blog_detail')
 						router.back()
 					}}
 					className='w-full flex max-w-4xl justify-start'

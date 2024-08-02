@@ -6,10 +6,12 @@ import { motion } from 'framer-motion'
 import { links } from '@/lib/data'
 import clsx from 'clsx'
 import { useActiveSectionContext } from '@/context/ActiveSectionContextProvider'
+import { useGoogleAnalytics } from '@/lib/hooks'
 
 export default function Header() {
 	const { activeSection, setActiveSection, setTimeOfLastClick } =
 		useActiveSectionContext()
+	const { trackEvent } = useGoogleAnalytics()
 
 	return (
 		<header className='z-[999] relative'>
@@ -47,6 +49,7 @@ export default function Header() {
 								onClick={() => {
 									setActiveSection(link.name)
 									setTimeOfLastClick(Date.now())
+									trackEvent('click', 'navigation', link.name)
 								}}
 								className={clsx(
 									'flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 dark:text-gray-500 dark:hover:text-gray-300 transition',

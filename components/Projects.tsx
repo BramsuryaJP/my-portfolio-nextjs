@@ -5,7 +5,7 @@ import React from 'react'
 import { projectsData } from '@/lib/data'
 import Project from './Project'
 import SectionHeading from './SectionHeading'
-import useSectionInView from '@/lib/hooks'
+import { useSectionInView } from '@/lib/hooks'
 import { useTranslations } from 'next-intl'
 import { useLocale } from 'next-intl'
 
