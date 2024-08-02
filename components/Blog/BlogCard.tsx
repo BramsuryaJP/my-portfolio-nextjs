@@ -2,6 +2,7 @@
 
 import { motion, useAnimation } from 'framer-motion'
 import { Link } from '@/navigation'
+import { useGoogleAnalytics } from '@/lib/hooks'
 
 interface Blog {
 	id: number
@@ -15,10 +16,11 @@ interface Blog {
 interface BlogCardProps {
 	blogList: Blog
 	index: number
-	onClick: () => void
 }
 
-export default function BlogCard({ blogList, index, onClick }: BlogCardProps) {
+export default function BlogCard({ blogList, index }: BlogCardProps) {
+	const { trackEvent } = useGoogleAnalytics()
+
 	const buttonVariants = {
 		hidden: { opacity: 0, y: -1 },
 		visible: { opacity: 1 },
@@ -83,14 +85,14 @@ relative h-[18rem] sm:h-[22rem] transition flex dark:bg-white/10 dark:text-white
 							whileHover={{
 								scale: 1.1,
 							}}
-							onClick={() => onClick()}
+							onClick={() => trackEvent('click', 'blog_card', `blog_${index}`)}
 						>
 							Read More
 						</motion.button>
 					</Link>
 					<Link href={`/blog/${blogList.slug}`} className='xl:hidden'>
 						<button
-							onClick={() => onClick()}
+							onClick={() => trackEvent('click', 'blog_card', `blog_${index}`)}
 							className='p-2 mt-5 w-full border border-black/20 dark:border-white/80 transition duration-200 hover:shadow-[0_0_5px_0_rgba(0,0,0,1)] dark:hover:shadow-[0_0_5px_0_rgba(255,255,255,1)] rounded-xl text-sm'
 						>
 							Read More

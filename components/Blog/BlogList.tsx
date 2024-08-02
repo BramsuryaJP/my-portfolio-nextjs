@@ -49,11 +49,7 @@ export default function BlogList({ blogListData }: BlogListDataProps) {
 			<div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
 				{blogListData.slice(0, 2).map((blog, index) => (
 					<React.Fragment key={index}>
-						<BlogCard
-							blogList={blog}
-							index={index}
-							onClick={() => trackEvent('click', 'blog_card', `blog_${index}`)}
-						/>
+						<BlogCard blogList={blog} index={index} />
 					</React.Fragment>
 				))}
 				<motion.div
@@ -67,7 +63,10 @@ export default function BlogList({ blogListData }: BlogListDataProps) {
 				>
 					<div
 						className='absolute inset-0 overflow-clip rounded-lg'
-						onMouseEnter={() => setEnter(true)}
+						onMouseEnter={() => {
+							trackEvent('hover', 'explore_more', 'blog_list')
+							setEnter(true)
+						}}
 						onMouseLeave={() => setEnter(false)}
 					>
 						<MotionWave
@@ -111,6 +110,7 @@ export default function BlogList({ blogListData }: BlogListDataProps) {
 						<Link
 							className='absolute inset-0 z-10 flex items-center justify-center gap-2 text-lg font-semibold text-white mix-blend-difference lg:text-2xl'
 							href='/blog'
+							onClick={() => trackEvent('click', 'explore_more', 'blog_list')}
 						>
 							Explore More
 						</Link>
