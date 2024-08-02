@@ -2,14 +2,14 @@
 
 import { useGoogleAnalytics } from '@/lib/hooks'
 import { Link } from '@/navigation'
-import { useEffect } from 'react'
+import { useEffect, Suspense } from 'react'
 
-export default function NotFound() {
+function NotFoundContent() {
 	const { trackEvent } = useGoogleAnalytics()
 
 	useEffect(() => {
 		trackEvent('view', '404_page', window.location.pathname)
-	}, [])
+	}, [trackEvent])
 
 	return (
 		<div className='flex items-center justify-center h-dvh sm:h-screen'>
@@ -37,5 +37,13 @@ export default function NotFound() {
 				</div>
 			</section>
 		</div>
+	)
+}
+
+export default function NotFound() {
+	return (
+		<Suspense fallback={null}>
+			<NotFoundContent />
+		</Suspense>
 	)
 }
