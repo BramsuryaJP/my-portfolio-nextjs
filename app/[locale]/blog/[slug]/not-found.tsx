@@ -1,16 +1,9 @@
 'use client'
 
-import { useGoogleAnalytics } from '@/lib/hooks'
 import { Link } from '@/navigation'
-import { useEffect, Suspense } from 'react'
+import { Suspense } from 'react'
 
 function NotFoundContent() {
-	const { trackEvent } = useGoogleAnalytics()
-
-	useEffect(() => {
-		trackEvent('view', '404_page', window.location.pathname)
-	}, [trackEvent])
-
 	return (
 		<div className='flex items-center justify-center h-dvh sm:h-screen'>
 			<section>
@@ -28,7 +21,6 @@ function NotFoundContent() {
 						<Link
 							type='button'
 							href={'/blog'}
-							onClick={() => trackEvent('click', 'back_to_blog', '404_page')}
 							className='bg-gray-100 dark:bg-white/10 border border-black/5 rounded-md inline-flex text-black dark:text-white bg-primary-600 font-medium text-sm px-5 py-2.5 text-center my-4'
 						>
 							Back to Blog Page
