@@ -1,13 +1,18 @@
 'use client'
 
 import Error from 'next/error'
+import React, { Suspense } from 'react'
 
-export default function NotFound() {
+const NotFound = () => {
 	return (
-		<html lang='en'>
-			<body>
-				<Error statusCode={404} />
-			</body>
-		</html>
+		<Suspense fallback={null}>
+			<html lang='en'>
+				<body>
+					<Error statusCode={404} />
+				</body>
+			</html>
+		</Suspense>
 	)
 }
+
+export default NotFound
