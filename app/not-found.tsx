@@ -1,18 +1,15 @@
 'use client'
 
+import GoogleAnalytics from '@/components/GoogleAnalytics'
 import Error from 'next/error'
-import React, { Suspense } from 'react'
 
-const NotFound = () => {
+export default function NotFound() {
 	return (
-		<Suspense fallback={null}>
-			<html lang='en'>
-				<body>
-					<Error statusCode={404} />
-				</body>
-			</html>
-		</Suspense>
+		<html lang='en'>
+			<GoogleAnalytics />
+			<body>
+				<Error statusCode={404} />
+			</body>
+		</html>
 	)
 }
-
-export default NotFound

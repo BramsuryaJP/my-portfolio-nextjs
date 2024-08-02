@@ -10,6 +10,7 @@ import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { ThemeProvider } from 'next-themes'
 import RecaptchaProvider from '@/components/RecaptchaProvider'
+import GoogleAnalytics from '@/components/GoogleAnalytics'
 
 const inter = Inter({
 	subsets: ['latin'],
@@ -37,6 +38,7 @@ export default async function LocaleLayout({
 
 	return (
 		<html lang={locale} className='!scroll-smooth'>
+			<GoogleAnalytics />
 			<body
 				className={`${inter.className} bg-gray-50 text-gray-950 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90 relative`}
 			>

@@ -2,10 +2,10 @@
 
 import { useGoogleAnalytics } from '@/lib/hooks'
 import { useRouter } from '@/navigation'
-import { useEffect, Suspense } from 'react'
+import { useEffect } from 'react'
 
 // Create a new component that uses the router
-function NotFoundContent() {
+export default function NotFound() {
 	const router = useRouter()
 	const { trackEvent } = useGoogleAnalytics()
 
@@ -41,14 +41,5 @@ function NotFoundContent() {
 				</div>
 			</section>
 		</div>
-	)
-}
-
-// Wrap the NotFoundContent in a Suspense boundary
-export default function NotFound() {
-	return (
-		<Suspense fallback={null}>
-			<NotFoundContent />
-		</Suspense>
 	)
 }

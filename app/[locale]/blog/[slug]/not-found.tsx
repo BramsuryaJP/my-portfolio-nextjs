@@ -2,9 +2,9 @@
 
 import { useGoogleAnalytics } from '@/lib/hooks'
 import { Link } from '@/navigation'
-import { useEffect, Suspense } from 'react'
+import { useEffect } from 'react'
 
-function NotFoundContent() {
+export default function NotFound() {
 	const { trackEvent } = useGoogleAnalytics()
 
 	useEffect(() => {
@@ -37,13 +37,5 @@ function NotFoundContent() {
 				</div>
 			</section>
 		</div>
-	)
-}
-
-export default function NotFound() {
-	return (
-		<Suspense fallback={null}>
-			<NotFoundContent />
-		</Suspense>
 	)
 }
